@@ -1,0 +1,21 @@
+N = int(input())
+
+max = list(map(int, input().split()))
+
+set = list(map(int, input().split()))
+
+click = int(input())
+
+def jegyui(num):
+	if max[N - num] > set[N - num]:
+		set[N - num] = set[N - num] + 1
+	else:
+		set[N - num] = 0
+		if N == num:
+			return
+		jegyui(num + 1)
+
+for _ in range(click):
+	jegyui(1)
+
+print(*set, sep='')
